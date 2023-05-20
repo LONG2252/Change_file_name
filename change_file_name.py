@@ -16,7 +16,7 @@ def scan_file(path,file_list=[]):#用以遍历文件夹
                 file=os.path.join(path,file)
                 change_name(file)
 
-def change_name(file):#删除标志
+def change_name(file):#更新
     global file_count
     file_path = os.path.dirname(file)
     file_name = os.path.basename(file)
