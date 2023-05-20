@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 file_count=0
-def scan_file(path,file_list=[]):
+def scan_file(path,file_list=[]):#用以遍历文件夹
     if(os.path.exists(path)):
         files=os.listdir(path)
         for row in files:
@@ -14,27 +14,9 @@ def scan_file(path,file_list=[]):
                 scan_file(os.path.join(path,file),file_list)
             else:
                 file=os.path.join(path,file)
-                del_scar(file)
+                change_name(file)
 
-def change_name(file):
-    if(len(the_scar)>0):
-        file_path = os.path.dirname(file)
-        file_name = os.path.basename(file)
-
-        scar_leng = len(the_scar)
-        if (the_scar != file_name[:scar_leng]):
-            new_file = file_path + '/' + the_scar + file_name
-            try:
-                print(new_file)
-                os.rename(file, new_file)
-            except Exception as e:
-                print(e)
-        else:
-            print('文件： ' + file + '已经有了同样的前缀！   ' + file_name[:scar_leng])
-    else:
-        print('请输入正确的字符！')
-
-def del_scar(file):#删除标志
+def change_name(file):#删除标志
     global file_count
     file_path = os.path.dirname(file)
     file_name = os.path.basename(file)
